@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Task </title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To Do Task</h1>
+        <input type="text" id="taskInput" placeholder="Enter your task here">
+        <button id="addTaskButton">Add Task</button>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+
+        let addTaskButton = document.querySelector('#addTaskButton');
+
+        addTaskButton.addEventListener("click", (e) => {
+            let taskInput = document.querySelector('#taskInput');
+            let taskInputValue = taskInput.value;
+
+            if (taskInputValue.trim() === "") {
+                alert("please enter a task");
+                return;
+            }
+            let taskList = document.querySelector('#taskList');
+            // console.log(taskInputValue);
+
+            let li = document.createElement('li');
+            li.textContent = taskInputValue;
+            taskList.appendChild(li);
+            taskInput.value = "";
+        });
+
+    </script>
+</body>
+
+</html>

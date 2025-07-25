@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random canva</title>
+    <style>
+        .container {
+            width: 80%;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .circle {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+        }
+        .square {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .rectangle {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+        }
+         
+    </style>
+</head>
+<body>
+    <input type="text" id="shape" placeholder="Click anywhere to create a shape" style="width: 100%; padding: 10px; box-sizing: border-box;">
+    <br><br>
+
+    <div class="container">
+
+    </div>
+</body>
+<script>
+    let container = document.querySelector('.container');
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+    
+
+    container.addEventListener("click", (e) => {
+         let shape = document.querySelector('#shape');
+        let askedShape = shape.value;
+        
+        const randomIndex = Math.floor(Math.random() * colors.length);
+       
+        let circle = document.createElement('div');
+        circle.classList.add(askedShape);
+        circle.style.backgroundColor = colors[randomIndex];
+        circle.style.left = e.clientX - 50 + "px";
+        circle.style.top = e.clientY - 50 + "px";
+
+        container.appendChild(circle);
+    });
+    
+    
+</script>
+</html>
